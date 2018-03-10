@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<script   src="jquery-3.3.1.min.js"></script>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>My Google Maps Demo</h3>
+    <iframe
+    width="600"
+	  height="450"
+	  frameborder="0" style="border:0"
+	  src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyBsAtReSNkDc60x9ESWTaaMGR4-gle7GOw&origin=Hanoi&destination=Hochiminh" allowfullscreen id="iframe">
+	</iframe>
+    <div>
+        <form method="POST" action="post.php">
+	    		<input type="text" placeholder="dia diem" name="source" id="source"> <br>
+		    	<input type="text" placeholder="dia diem" name="destination" id = "destination"> <br>
+          <input type = "radio" name ="vehicle" value = "xemay"/>xemay<br/>
+          <input type = "radio" name ="vehicle" value = "oto"/>oto<br/>
+		    	<input type="submit" name="">
+	    	</form>
+    </div>
+    <script type="text/javascript">
+    	function searchDirection() {
+    		var $source = $('#source').val();
+    		var $destination = $('#destination').val();
+    		var $src = 'https://www.google.com/maps/embed/v1/directions?key=AIzaSyBsAtReSNkDc60x9ESWTaaMGR4-gle7GOw&origin=' + $source + '&destination=' + $destination;
+
+    		$('iframe').attr('src', $src);      
+    	}
+    </script>
+  </body>
+</html>
